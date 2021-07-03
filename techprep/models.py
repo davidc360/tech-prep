@@ -13,9 +13,6 @@ class User(UserMixin, db.Model):
     date_created = db.Column(db.DateTime, nullable=False)
     last_active = db.Column(db.DateTime, nullable=False)
 
-    recipes = db.relationship('Recipe', backref='user')
-    meals = db.relationship('Meal', backref='user')
-
 
 @login_manager.user_loader
 def load_user(id):
