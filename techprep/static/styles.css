@@ -1,3 +1,17 @@
+/* Homepage */
+.hero-text {
+    margin-top: 300px;
+}
+
+.hero-container {
+    height: 100vh;
+    background-color: #304d30;
+}
+
+.feature-section, .team-section {
+    background-color: #eaebed;
+}
+
 /* Auth */
 .auth-section, .form-section {
     display: flex;
@@ -28,8 +42,4 @@
     max-width: 300px;
     word-wrap: break-word;
     text-align: center;
-}
-
-.hero-text {
-    margin-top: 300px;
 }
