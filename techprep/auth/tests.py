@@ -4,10 +4,10 @@ from unittest import TestCase
 from datetime import datetime
 
 from techprep import app, db, bcrypt
-from techprep.models import Meal, Recipe, User
+from techprep.models import User
 """
 Run these tests with the command:
-python -m unittest skillet.auth.tests
+python -m unittest techprep.auth.tests
 """
 
 #################################################

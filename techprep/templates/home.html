@@ -1,9 +1,81 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="hero">
-  <p class="display-2 hero-text ps-5">TechPrep</p>
+<div class="hero-container col-12 p-0 d-flex align-items-center">
+  <canvas id="hero-image" class="position-absolute"></canvas>
 
+  <div class="position-absolute col-11 text-light ps-5">
+    <div class="ps-5">
+      <h1 class="display-3">Nail Your Next Technical Interview</h1>
+      <p class="lead fs-4">Get live help from a community who knows how.</p>
+      <a href="/login">
+        <div class="btn btn-primary bg-light text-dark border-0 px-5 py-2 fs-5 mt-2">Prep Now</div>
+      </a>
+    </div>
+  </div>
 </div>
 
+<section class="tex-dark col-12 feature-section py-5">
+  <div class="row col-10 offset-1">
+    <p class="fs-1 text-center mb-5">Find resources, Get Help</p>
+    <div class="col-lg-5 offset-lg-1 col-md-10 offset-md-1" data-aos="fade-right" data-aos-duration="1000">
+      <div>
+        <p class="fs-3"></p>
+        <ul>
+          <li class="px-2">
+            <p class="fs-5 m-0">Just Ask</p>
+            <p>Get real time feedback and answers from industry proffesionals.</p>
+          </li>
+          <li class="px-2">
+            <p class="fs-5 m-0">Quality Resources</p>
+            <p>Find resources posted by other tech preppers.</p>
+          </li>
+          <li class="px-2">
+            <p class="fs-5 m-0">Learn by teaching</p>
+            <p>Answer other peoples questions and learn faster by sharing your knowledge.</p>
+          </li>
+          <li class="px-2">
+            <p class="fs-5 m-0">Don't Prepare Alone</p>
+            <p>Find your study group and never feel unprepared again.</p>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-lg-5 offset-lg-0 col-md-10 offset-md-1" data-aos="fade-left" data-aos-duration="1000">
+      <img src="/static/images/just-ask.svg" class="col-10 offset-1" />
+    </div>
+  </div>
+</section>
+
+<section class="text-dark howItWorks-section col-12 py-5">
+  <p class="fs-1 text-center mb-5">Become a TechPrepper</p>
+  <div class="row col-10 offset-1">
+
+    <div class="col-lg-5 offset-lg-1 col-md-10 offset-md-1" data-aos="fade-right" data-aos-duration="1000">
+      <img src="/static/images/get-started.svg" class="col-8 offset-2" />
+    </div>
+
+    <div class="col-lg-5 offset-lg-0 col-md-10 offset-md-1" data-aos="fade-left" data-aos-duration="1000">
+      <p class="fs-3">Join to start improving</p>
+      <p>We know technical interviewing can be overwhelming, but with techprep it doesnt
+        need to be. Create your account to start interacting with our community. Find the right learning routine
+        that fits your schedule, and find resources to make your study time more efficient</p>
+    </div>
+  </div>
+</section>
 {% endblock content %}
+
+{% block scripts %}
+<!-- hero animation -->
+<script src="https://unpkg.com/thpace"></script>
+<script src="{{ url_for('static', filename='js/thpace.js') }}"></script>
+
+<!-- scroll animations -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+{% endblock scripts %}
