@@ -13,6 +13,14 @@ class User(UserMixin, db.Model):
     date_created = db.Column(db.DateTime, nullable=False)
     last_active = db.Column(db.DateTime, nullable=False)
 
+    posts = db.relationship('Post', back_populates='author')
+
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(80), nullable=False)
+    body = db.Column(db.String(40000), nullable=True)
+    author_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    author = db.relationship('User', back_populates='posts')
 
 @login_manager.user_loader
 def load_user(id):
