@@ -3,6 +3,7 @@ from flask import Blueprint, request, render_template, redirect, url_for, flash
 main = Blueprint("main", __name__, template_folder='templates')
 
 from techprep import db
+from techprep.models import Post
 from techprep.main.forms import PostForm
 
 from flask_login import login_required, current_user
@@ -38,4 +39,5 @@ def new_post():
 
 @main.route('/post/<post_id>')
 def post_detail(post_id):
-    return render_template('post_detail.html')
+    post = Post.query.get(post_id)
+    return render_template('post_detail.html', post=post)
