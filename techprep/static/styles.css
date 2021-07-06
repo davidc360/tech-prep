@@ -43,3 +43,40 @@
     word-wrap: break-word;
     text-align: center;
 }
+
+/* Posts */
+
+.PostDetailSection {
+    background-color: rgb(233, 233, 233);
+    padding: 100px 0;
+}
+
+.postDetail {
+  padding: 20px;
+  box-shadow: 2px 5px 2px gray;
+  background-color: white;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+.postAuthorImage {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+}
+
+.postHeader {
+  display: flex;
+  align-items: center;
+}
+
+.postAuthor {
+  margin: 0 10px;
+  padding: 0;
+}
+
+.postTitle {
+  font-size: 1.5em;
+  margin-top: 10px;
+}

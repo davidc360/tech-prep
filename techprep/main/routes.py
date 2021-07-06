@@ -27,12 +27,14 @@ def new_post():
     if form.validate_on_submit():
         new_post = Post(
             title=form.title.data,
-            author=current_user.id,
+            author=current_user,
             body=form.body.data
         )
-        post_id = new_post.id
+
         db.session.add(new_post)
         db.session.commit()
+        post_id = new_post.id
+
         flash('New post was created successfully.')
 
         return redirect(url_for('main.post_detail', post_id=post_id))
