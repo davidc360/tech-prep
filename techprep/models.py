@@ -14,6 +14,7 @@ class User(UserMixin, db.Model):
     last_active = db.Column(db.DateTime, nullable=False)
 
     posts = db.relationship('Post', back_populates='author')
+    comments = db.relationship('Comment', back_populates='author')
 
     upvoted_posts = db.relationship(
         'Post', secondary='user_upvoted', back_populates='users_who_upvoted')
@@ -31,7 +32,15 @@ class Post(db.Model):
         'User', secondary='user_upvoted', back_populates='upvoted_posts')
     users_who_downvoted = db.relationship(
         'User', secondary='user_downvoted', back_populates='downvoted_posts')
+    comments = db.relationship('Comment', back_populates='post')
 
+class Comment(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    body = db.Column(db.String(40000), nullable=True)
+    author_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    author = db.relationship('User', back_populates='comments')
+    post_id = db.Column(db.Integer, db.ForeignKey('post.id'), nullable=False)
+    post = db.relationship('Post', back_populates='comments')
 
 user_upvoted_table = db.Table('user_upvoted',
     db.Column('post_id', db.Integer, db.ForeignKey('post.id')),
