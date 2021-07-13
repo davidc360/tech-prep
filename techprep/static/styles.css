@@ -42,6 +42,7 @@
     max-width: 300px;
     word-wrap: break-word;
     text-align: center;
+    list-style-type: none;
 }
 
 /* Posts */
@@ -87,4 +88,14 @@
 
 .feed-link:hover {
   text-decoration: underline #0645AD;
+}
+
+.feature-posts {
+  max-height: 600px;
+  overflow-y: scroll;
+}
+
+.comment-submit {
+  display: flex;
+  flex-direction: row;
 }
