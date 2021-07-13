@@ -54,6 +54,9 @@
           {% for error in field.errors %}
           <li class="error ">{{ error }}</li>
           {% endfor %}
+          {% for error in get_flashed_messages() %}
+          <li class="error ">{{ error }}</li>
+          {% endfor %}
         </ul>
 
         {% endif %}

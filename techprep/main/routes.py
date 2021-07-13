@@ -47,8 +47,12 @@ def post_detail(post_id):
     post = Post.query.get(post_id)
 
     form = CommentForm()
-    if form.validate_on_submit() and current_user is not None:
-        print(current_user)
+    if form.validate_on_submit():
+
+        if not current_user.is_authenticated:
+            flash('Please login to comment.')
+            return redirect(url_for('auth.login'))
+
         new_comment = Comment(
             body=form.body.data,
             author=current_user,
@@ -59,6 +63,7 @@ def post_detail(post_id):
         db.session.commit()
 
         return redirect(url_for('main.post_detail', post_id=post_id))
+
     return render_template('post_detail.html', post=post, form=form)
 
 
