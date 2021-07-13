@@ -10,3 +10,10 @@ class PostForm(FlaskForm):
     body = StringField('Body',
         validators=[Length(min=0, max=40000)])
     submit = SubmitField('Submit')
+
+class CommentForm(FlaskForm):
+    """Form to create a comment"""
+    body = StringField('Add a comment',
+        validators=[Length(min=0, max=40000)])
+    submit = SubmitField('Submit')
+

@@ -1,6 +1,6 @@
 from flask_login import login_required, current_user
-from techprep.main.forms import PostForm
-from techprep.models import Post
+from techprep.main.forms import PostForm, CommentForm
+from techprep.models import Post, Comment
 from techprep import db
 from flask import Blueprint, request, render_template, redirect, url_for, flash
 
@@ -15,7 +15,8 @@ main = Blueprint("main", __name__, template_folder='templates')
 @main.route('/')
 def home():
     """Displays the homepage."""
-    return render_template('home.html')
+    posts = Post.query.all()
+    return render_template('home.html', posts=posts)
 
 
 @main.route('/post/new', methods=['GET', 'POST'])
@@ -41,10 +42,24 @@ def new_post():
     return render_template('new_post.html', form=form)
 
 
-@main.route('/post/<post_id>')
+@main.route('/post/<post_id>', methods=['GET', 'POST'])
 def post_detail(post_id):
     post = Post.query.get(post_id)
-    return render_template('post_detail.html', post=post)
+
+    form = CommentForm()
+    if form.validate_on_submit() and current_user is not None:
+        print(current_user)
+        new_comment = Comment(
+            body=form.body.data,
+            author=current_user,
+            post_id=post_id
+        )
+
+        db.session.add(new_comment)
+        db.session.commit()
+
+        return redirect(url_for('main.post_detail', post_id=post_id))
+    return render_template('post_detail.html', post=post, form=form)
 
 
 @main.route('/feed')
