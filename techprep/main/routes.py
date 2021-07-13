@@ -18,6 +18,7 @@ def home():
     posts = Post.query.all()
     return render_template('home.html', posts=posts)
 
+
 @main.route('/post/new', methods=['GET', 'POST'])
 @login_required
 def new_post():
@@ -44,6 +45,7 @@ def new_post():
 @main.route('/post/<post_id>', methods=['GET', 'POST'])
 def post_detail(post_id):
     post = Post.query.get(post_id)
+
     form = CommentForm()
     if form.validate_on_submit() and current_user is not None:
         print(current_user)
@@ -58,3 +60,11 @@ def post_detail(post_id):
 
         return redirect(url_for('main.post_detail', post_id=post_id))
     return render_template('post_detail.html', post=post, form=form)
+
+
+@main.route('/feed')
+@login_required
+def feed():
+    posts = Post.query.all()
+
+    return render_template('feed.html', posts=posts)

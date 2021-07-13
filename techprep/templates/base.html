@@ -36,6 +36,12 @@
         <ul class="navbar-nav ms-auto">
           {% if current_user.is_authenticated %}
           <li>
+            <a class="nav-link" href="/post/new">New Post</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/feed">Prep Feed</a>
+          </li>
+          <li>
             <a class="nav-link" href="/logout">Logout</a>
           </li>
           <li>

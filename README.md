@@ -53,3 +53,7 @@ View the app live at https://tech-prep.herokuapp.com/
 * SQL Lite
 
 ##  <a name='ResourcesShoutsoutsCredit'></a>Resources / Shouts outs / Credit
+
+## Deploy Schedule
+* July 13th - Initial Deploy. Veryify database and features are functioning correctly.
+* July 14th - Final Deploy before presentation. Push last mvp feature and verify that it works.
