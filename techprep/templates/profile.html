@@ -1,8 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<section class="profile">
-  <p>User Profile</p>
+<section class="profile bg-light p-5">
+  <div class="postDetail col-6 offset-3">
+    <h2>Hello, {{user.username.title()}}</h2>
+    <p class="pt-2">Email: {{user.email}}</p>
+    <p class="mt-5">Your Posts:</p>
+    {% for post in user.posts %}
+    <ul>
+      <li>
+        <a href="/post/{{post.id}}">{{post.title}}</a>
+      </li>
+    </ul>
+    {% endfor %}
+  </div>
 </section>
 
 {% endblock content %}
