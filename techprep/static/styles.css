@@ -46,7 +46,7 @@
 
 /* Posts */
 
-.PostDetailSection {
+.PostDetailSection, .ProfileSection {
     background-color: rgb(233, 233, 233);
     padding: 100px 0;
 }
