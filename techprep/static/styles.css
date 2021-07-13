@@ -80,3 +80,7 @@
   font-size: 1.5em;
   margin-top: 10px;
 }
+
+.feed-post {
+  text-decoration: none;
+}

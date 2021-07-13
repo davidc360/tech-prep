@@ -45,3 +45,11 @@ def new_post():
 def post_detail(post_id):
     post = Post.query.get(post_id)
     return render_template('post_detail.html', post=post)
+
+
+@main.route('/feed')
+@login_required
+def feed():
+    posts = Post.query.all()
+
+    return render_template('feed.html', posts=posts)
