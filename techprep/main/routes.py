@@ -15,8 +15,8 @@ main = Blueprint("main", __name__, template_folder='templates')
 @main.route('/')
 def home():
     """Displays the homepage."""
-    return render_template('home.html')
-
+    posts = Post.query.all()
+    return render_template('home.html', posts=posts)
 
 @main.route('/post/new', methods=['GET', 'POST'])
 @login_required
