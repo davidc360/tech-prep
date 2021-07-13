@@ -34,11 +34,22 @@ Tech Prep is a website that hosts all resources related to technical interview p
 <hr>
 
 ##  <a name='Howtoinstallconfiglaunch'></a>How to install / config / launch / Usage
+To run the server:  
+* Create a .env file with a DATABASE_URL and a SECRET_KEY
+* Install dependencies with pip `install -r requirements.txt`
+* If you prefer using pipenv, use `pipenv install`, then enter the pipenv shell with `pipenv shell`
+* Run the server with `python3 app.py`
 
 ##  <a name='Linktoapplicationdemo'></a>Link to application demo
+View the app live at https://tech-prep.herokuapp.com/
 
 ##  <a name='Screenshotsofapp'></a>Screenshots of app
 
 ##  <a name='Technologiesused'></a>Technologies used
+* Flask 
+* Flask-login
+* WTForms
+* Jinja2 templates
+* SQL Lite
 
 ##  <a name='ResourcesShoutsoutsCredit'></a>Resources / Shouts outs / Credit

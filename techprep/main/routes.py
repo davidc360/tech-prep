@@ -45,3 +45,4 @@ def new_post():
 def post_detail(post_id):
     post = Post.query.get(post_id)
     return render_template('post_detail.html', post=post)
+
