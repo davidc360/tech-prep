@@ -81,6 +81,10 @@
   margin-top: 10px;
 }
 
-.feed-post {
+.feed-link {
   text-decoration: none;
+}
+
+.feed-link:hover {
+  text-decoration: underline #0645AD;
 }

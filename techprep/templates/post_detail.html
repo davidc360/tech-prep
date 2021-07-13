@@ -8,7 +8,11 @@
         <img src="https://i.stack.imgur.com/YaL3s.jpg" class="postAuthorImage" />
       </div>
       <div>
-        <p class="postAuthor">{{post.author.username.title()}}</p>
+        <p class="postAuthor">
+          <a class="text-dark feed-link" href="/profile/{{post.author.id}}">
+            {{post.author.username.title()}}
+          </a>
+        </p>
       </div>
     </div>
     <p class="postTitle">{{post.title}}</p>
