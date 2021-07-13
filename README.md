@@ -42,3 +42,7 @@ Tech Prep is a website that hosts all resources related to technical interview p
 ##  <a name='Technologiesused'></a>Technologies used
 
 ##  <a name='ResourcesShoutsoutsCredit'></a>Resources / Shouts outs / Credit
+
+## Deploy Schedule
+* July 13th - Initial Deploy. Veryify database and features are functioning correctly.
+* July 14th - Final Deploy before presentation. Push last mvp feature and verify that it works.
